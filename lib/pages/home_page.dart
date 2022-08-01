@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:to_do/widget/card_widget.dart';
 import 'package:to_do/widget/empty_page.dart';
 import 'package:to_do/widget/loading_widget.dart';
+import 'package:to_do/widget/logoutwidget.dart';
 
 import '../widget/error_widget.dart';
 import '../widget/new_widget.dart';
@@ -22,7 +23,9 @@ class _HomePageState extends State<HomePage> {
           title: const Text("Home page"),
           actions: [
 
-            Icon(Icons.more_vert),
+
+        LogoutWidgetPage(context),
+
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 16),
         ),
@@ -38,7 +41,7 @@ class _HomePageState extends State<HomePage> {
           padding: const EdgeInsets.all(10),
           children: [
             if (temp == 0)
-              EmptyPageWidget(context)
+              LogoutWidgetPage(context)
             else if (temp == 1)
               CardWidget(context)
             else if (temp == 2)

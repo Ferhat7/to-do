@@ -40,6 +40,22 @@
   <script src="flutter.js" defer></script>
 </head>
 <body>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyCiwYbQ0bj1NfZn6edOZ9UO_fgy870bjq0",
+      authDomain: "to-do-ferhat.firebaseapp.com",
+      projectId: "to-do-ferhat",
+      storageBucket: "to-do-ferhat.appspot.com",
+      messagingSenderId: "356705440868",
+      appId: "1:356705440868:web:b497d6008f03adad01bb71",
+      measurementId: "G-60SCX3R87W"
+    };
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  <script src="main.dart.js" type="application/javascript"></script>
   <script>
     window.addEventListener('load', function(ev) {
       // Download main.dart.js
