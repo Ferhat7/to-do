@@ -1,32 +1,53 @@
 import 'package:flutter/material.dart';
 import 'package:to_do/pages/home_page.dart';
+import 'package:to_do/pages/login_page.dart';
 import 'package:to_do/widget/delet_updat_widget.dart';
 Widget LogoutWidgetPage(BuildContext context) {
 
 
   return PopupMenuButton(
+
   itemBuilder: (BuildContext context) => <PopupMenuEntry>[
-    const PopupMenuItem(
+    PopupMenuItem(
       child: ListTile(
-        leading: Icon(Icons.edit),
-        title: Text('Edit'),
+        leading: Icon(Icons.account_circle),
+        title: Text('User'),
       ),
     ),
 
-    const PopupMenuItem(
+
+     PopupMenuItem(
       child: ListTile(
-        leading: Icon(Icons.delete),
-        title: Text('Delete'),
-      ),
-    ),
-    const PopupMenuItem(
-      child: ListTile(
-        leading: Icon(Icons.logout),
+        leading: IconButton(
+   icon: Icon(Icons.logout),
+  onPressed: (){
+    showDialog
+       (context: context,
+         builder: (BuildContext context)=>AlertDialog(
+content:Text('Are u sure'),
+           actions: [
+             TextButton(onPressed: (){
+               Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginPage()));
+             }, child: Text('OK')),
+             TextButton(onPressed: (){
+               Navigator.pop(context);
+             }, child: Text('CANCEL')),
+           ],
+         ));
+
+
+  }
+  ),
+
+
+
+
         title: Text('logout'),
+
   ),
   ),
 
-  
+
 
       
     
@@ -38,3 +59,11 @@ Widget LogoutWidgetPage(BuildContext context) {
 
 
 }
+/*
+IconButton(
+                icon: const Icon(Icons.logout),
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const LoginPage()));
+                }),
+                */

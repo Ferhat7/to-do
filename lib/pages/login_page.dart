@@ -16,8 +16,8 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final formKey = GlobalKey<FormState>();
-   TextEditingController _emailController=TextEditingController();
-   TextEditingController _passwordController=TextEditingController();
+   final TextEditingController _emailController=TextEditingController();
+   final TextEditingController _passwordController=TextEditingController();
 
   final ButtonStyle textButtonStyle=ElevatedButton.styleFrom(
     primary: Colors.purple,
@@ -59,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
                   validator: (_emailController) {
 
     if (_emailController!.isEmpty) {
-    return "Please enter E-mail";
+    return "Please enter E-mail hatalı giris";
     }
 
     else {
@@ -86,7 +86,8 @@ class _LoginPageState extends State<LoginPage> {
     ),
                   validator: (_passwordController){
                     if(_passwordController!.isEmpty){
-                      return "Please enter Password";}
+                      return "Please enter Password";
+                    }
                     else{
                       return null;
                     }
@@ -107,7 +108,6 @@ class _LoginPageState extends State<LoginPage> {
         AuthService().signIn(_emailController.text,
     _passwordController.text)
         .then((value) {
-
 
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => HomePage()));

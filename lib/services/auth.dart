@@ -26,8 +26,9 @@ class AuthService{
         .doc(user.user!.uid)
         .set({
 
-      "display name":name,
+      "display_name":name,
       "email":email
+
     });
 
     return user.user;
