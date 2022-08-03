@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Widget LoadingPageWidget(BuildContext context) {
+Widget Loading_Widget(BuildContext context) {
   return Center(
       child: Column(
         children: [

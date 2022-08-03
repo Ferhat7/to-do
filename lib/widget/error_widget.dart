@@ -1,6 +1,6 @@
  import 'package:flutter/material.dart';
 
-Widget ErrorPageWidget(BuildContext context){
+Widget Error_Widget(BuildContext context){
   return Center(
       child:Column(
         children: [

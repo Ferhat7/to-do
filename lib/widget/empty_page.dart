@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:to_do/widget/logoutwidget.dart';
 
 
-Widget EmptyPageWidget(BuildContext context){
+Widget Empty_Widget(BuildContext context){
 
   return Center(
     child:Column(

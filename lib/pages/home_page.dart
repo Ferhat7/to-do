@@ -2,15 +2,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:to_do/services/task.dart';
-import 'package:to_do/widget/card_widget.dart';
 import 'package:to_do/widget/empty_page.dart';
 import 'package:to_do/widget/loading_widget.dart';
 import 'package:to_do/widget/logoutwidget.dart';
-
-import '../services/auth.dart';
+import 'package:to_do/widget/tasklist_widget.dart';
 import '../widget/error_widget.dart';
-import '../widget/new_widget.dart';
-import 'login_page.dart';
+
 
 class HomePage extends StatefulWidget {
   @override
@@ -19,7 +16,11 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 TextEditingController _title=TextEditingController();
+var currentUser = FirebaseAuth.instance.currentUser;
 
+
+CollectionReference usersCollection =
+FirebaseFirestore.instance.collection('users');
 
 
   @override
@@ -54,16 +55,23 @@ TextEditingController _title=TextEditingController();
 
 
 
-        body: ListView(
-          padding:  const EdgeInsets.all(10),
-          children:  [
+        body: StreamBuilder<QuerySnapshot>(
+            stream: usersCollection.doc(currentUser?.uid).collection('tasks').snapshots(),
+            builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+              if (snapshot.hasError) {
+                return Error_Widget(context);
+              }
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return Loading_Widget(context);
+              }
+              if (snapshot.data!.docs.isEmpty) {
+                return Empty_Widget(context);
+              }
+
+              return TaskListWidget(context,snapshot);
 
 
-              CardWidget(context),
-
-
-          ],
-        ),
+            }),
 
         floatingActionButton: FloatingActionButton(
           onPressed: () {
@@ -77,7 +85,7 @@ TextEditingController _title=TextEditingController();
                         leading: new Icon(Icons.radio_button_unchecked),
                         title:  TextFormField
                           (
-                          controller:_title,
+                        controller:_title,
                         decoration: InputDecoration(
 
                           labelText: "Task Name"
@@ -94,7 +102,11 @@ TextEditingController _title=TextEditingController();
 
                   );
 
-                });
+
+                }
+
+
+                );
 
           },
           tooltip: 'Increment',

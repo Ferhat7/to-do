@@ -43,7 +43,17 @@ class TaskService {
         .delete();
     return null;
   }
-  updateTaskTitle(String title, String uuid) async {
+  editTaskTitle(String title, String uuid) async {
+    await task
+        .doc(uuid)
+        .update(
+        {
+
+          'title': title,
+
+        }).then((value) => null);
+    return null;
+
   }
 
   getTasks(String uuid) async{
