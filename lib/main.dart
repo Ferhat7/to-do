@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:to_do/pages/home_page.dart';
 
 import 'package:to_do/pages/login_page.dart';
+import 'package:to_do/pages/show-page.dart';
 import 'package:to_do/widget/logoutwidget.dart';
+
 
 
 Future main() async {
@@ -39,7 +41,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.purple,
       ),
-      home:LoginPage(),
+      home:ShowPage(),
     );
   }
 }

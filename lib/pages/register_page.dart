@@ -130,7 +130,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           return "Please enter password";
                         } else {
                           if(_passwordController.text !=value){
-                                          return" Passwords are not match";
+                            return" Passwords are not match";
                           }
                           return null;
                         }
