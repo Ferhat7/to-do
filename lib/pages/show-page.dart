@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:table_calendar/table_calendar.dart';
-import 'package:to_do/widget/card_widget.dart';
 
 
 class ShowPage extends StatefulWidget {
+
 
   const ShowPage
 
   ({super.key, this.uuid,this.title});
 
-  final uuid;
   final title;
+  final uuid;
+
 
   @override
   _ShowPageState createState() => _ShowPageState();
 }
 
 class _ShowPageState extends State<ShowPage> {
-  var _selectedDate;
 
-  var _textEditingController;
+TextEditingController _title=TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -135,7 +135,7 @@ class _ShowPageState extends State<ShowPage> {
   _selectDate(BuildContext context) async {
     await showDatePicker(
       context: context,
-      initialDate: DateTime(2020, 11, 17),
+      initialDate: DateTime(2022, 08, 08),
       firstDate: DateTime(2017, 1),
       lastDate: DateTime(2022, 7),
       helpText: 'Select a date',
