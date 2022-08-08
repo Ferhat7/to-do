@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:table_calendar/table_calendar.dart';
+import 'package:to_do/widget/card_widget.dart';
 
 
 class ShowPage extends StatefulWidget {
-
 
   const ShowPage
 
   ({super.key, this.uuid,this.title});
 
-  final title;
   final uuid;
-
+  final title;
 
   @override
   _ShowPageState createState() => _ShowPageState();
 }
 
 class _ShowPageState extends State<ShowPage> {
+  var _selectedDate;
 
-TextEditingController _title=TextEditingController();
-
+  var _textEditingController;
 
   @override
   Widget build(BuildContext context) {
@@ -50,10 +50,9 @@ TextEditingController _title=TextEditingController();
 
 
                 Container(
-
                   margin: EdgeInsets.all(10),
                   child: TextFormField(
-controller: _title,
+
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Task Name',
@@ -107,15 +106,14 @@ controller: _title,
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(left: 0, bottom: 0 , right: 0, top: 400),
+
                   height: 50,
                   width: double.infinity,
-                 // margin: EdgeInsets.all(20),
+                  margin: EdgeInsets.all(20),
                   child: ElevatedButton(
                       child: const Text('SAVE'),
 
                       onPressed: () {
-
 
 
 
@@ -137,9 +135,9 @@ controller: _title,
   _selectDate(BuildContext context) async {
     await showDatePicker(
       context: context,
-      initialDate: DateTime(2022, 08, 04),
+      initialDate: DateTime(2020, 11, 17),
       firstDate: DateTime(2017, 1),
-      lastDate: DateTime(2030, 7),
+      lastDate: DateTime(2022, 7),
       helpText: 'Select a date',
     );
 
