@@ -21,20 +21,20 @@ class TaskService {
         .doc(uuid).set({
       'uid': uuid,
       'title': title,
-      'update_time':updateTime
+
     });
   }
 
-  updateNote(String content, String uuid,String updateTime) async {
+   Future<TaskService?>updateTask(String content,String updateTime,String uuid,String title) async {
     await task
         .doc(uuid)
         .update(
         {
-
           'content': content,
-          'update time':updateTime
+          'update time':updateTime,
+          'title':title,
         }).then((value) => null);
-    return null;
+
 
   }
 
@@ -56,7 +56,7 @@ class TaskService {
 
   }
 
-  getTasks(String uuid) async{
+  Future<DocumentSnapshot>getTasks(String uuid) async{
 
     return task.doc(uuid).get();
     // return null;

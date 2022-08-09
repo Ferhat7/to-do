@@ -17,7 +17,7 @@ Widget TaskListWidget(BuildContext context,AsyncSnapshot<QuerySnapshot> snapshot
       document.data()! as Map<String, dynamic>;
       var title =data['title'];
       var uuid=data['uid'];
-      var update_time=data['update_time'];
+
       return Container(
           child:CardWidget(context,title,uuid)
       );
