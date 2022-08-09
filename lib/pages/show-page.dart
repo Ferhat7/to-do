@@ -1,4 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:to_do/services/task.dart';
 
 
 class ShowPage extends StatefulWidget {
@@ -18,7 +21,16 @@ class ShowPage extends StatefulWidget {
 
 class _ShowPageState extends State<ShowPage> {
 
-TextEditingController _title=TextEditingController();
+
+var collection = FirebaseFirestore.instance.collection('users');
+
+var currentUser = FirebaseAuth.instance.currentUser;
+
+final TextEditingController _controller = TextEditingController();
+
+
+final TaskService _taskService = TaskService();
+
 
 
   @override
@@ -29,7 +41,7 @@ TextEditingController _title=TextEditingController();
         automaticallyImplyLeading: false,
         centerTitle: true,
 
-        title: const Text("TODO"),
+        title: const Text("TO-DO"),
 
 
         backgroundColor: Colors.white,
@@ -52,6 +64,8 @@ TextEditingController _title=TextEditingController();
                 Container(
                   margin: EdgeInsets.all(10),
                   child: TextFormField(
+                 //   controller: _title,
+
 
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
@@ -62,7 +76,9 @@ TextEditingController _title=TextEditingController();
                   ),
 
                 ),
+
                 Container(
+
                   margin: EdgeInsets.all(10),
                   child: TextFormField(
                     decoration: InputDecoration(
@@ -75,10 +91,15 @@ TextEditingController _title=TextEditingController();
                     ),
                     onTap: () {
 
+
                       _selectDate(context);
+
                     },
 
+                    controller: _controller,
+
                   ),
+
                 ),
 
 
@@ -106,10 +127,14 @@ TextEditingController _title=TextEditingController();
                   ),
                 ),
                 Container(
+                  margin: EdgeInsets.only(left: 0, bottom: 0 , right: 0, top: 400),
+                  // margin: EdgeInsets.all(20),
 
                   height: 50,
                   width: double.infinity,
-                  margin: EdgeInsets.all(20),
+                  // margin: EdgeInsets.all(20),
+                  //margin: EdgeInsets.fromLTRB(0, 400, 0, 0),
+
                   child: ElevatedButton(
                       child: const Text('SAVE'),
 
@@ -117,9 +142,9 @@ TextEditingController _title=TextEditingController();
 
 
 
-                          }),
-                  ),
 
+                      }),
+                ),
 
 
               ],
@@ -133,13 +158,16 @@ TextEditingController _title=TextEditingController();
   }
 
   _selectDate(BuildContext context) async {
-    await showDatePicker(
+  final selected=  await showDatePicker(
       context: context,
-      initialDate: DateTime(2022, 08, 08),
+      initialDate: DateTime.now(),
       firstDate: DateTime(2017, 1),
-      lastDate: DateTime(2022, 7),
+      lastDate: DateTime(2050, 7),
       helpText: 'Select a date',
     );
+    setState(() {
+      _controller.text = selected.toString();
+    });
 
 }
 
