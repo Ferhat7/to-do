@@ -12,7 +12,8 @@ Widget CardWidget(BuildContext context,String title,String uuid){
       elevation: 10,
       borderOnForeground: false,
       clipBehavior: Clip.antiAlias,
-      child: ListTile(
+      child:
+      ListTile(
         leading: Icon(Icons.check_circle_outline_rounded),
         title: Text(title),
         trailing: UpdateDeleteWidget(context,uuid),
@@ -23,6 +24,7 @@ Widget CardWidget(BuildContext context,String title,String uuid){
 
 
     )),
+
 
 
       onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context)=>ShowPage(title:title,uuid: uuid,))));

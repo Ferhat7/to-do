@@ -92,8 +92,7 @@ FirebaseFirestore.instance.collection('users');
                         ),),
                       trailing:new Icon(Icons.send),
                         onTap: () {
-                          var  createTime=DateTime.now();
-                          TaskService().createTask(_title.text, createTime.toString());
+                          TaskService().createTask(_title.text);
                           Navigator.pop(context);
                         },
                       ),

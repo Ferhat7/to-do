@@ -14,7 +14,7 @@ class TaskService {
       'tasks');
   var uuid = Uuid().v1();
 
-   createTask(String title,String updateTime) async {
+   createTask(String title) async {
 
 
     await task
@@ -25,7 +25,7 @@ class TaskService {
     });
   }
 
-   Future<TaskService?>updateTask(String content,String updateTime,String uuid,String title) async {
+   Future<TaskService?>updateTask(String uuid, String title, String content,String updateTime,) async {
     await task
         .doc(uuid)
         .update(
