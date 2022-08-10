@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:to_do/pages/login_page.dart';
+import 'package:to_do/widget/comletedTask_widget.dart';
 Widget LogoutWidgetPage(BuildContext context) {
   return PopupMenuButton(
 
@@ -39,6 +40,26 @@ Widget LogoutWidgetPage(BuildContext context) {
 
             title: Text('logout'),
 
+          ),
+        ),
+        PopupMenuItem(
+          child: TextButton.icon(
+            onPressed: () {
+              showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return CompletedTask_Widget(context);
+                  });
+            },
+            icon: Icon(
+              Icons.edit,
+              size: 24.0,
+              color: Colors.black,
+            ),
+            label: Text(
+              "Completed Tasks",
+              style: TextStyle(color: Colors.black),
+            ),
           ),
         ),
 

@@ -12,6 +12,8 @@ class TaskService {
 
   var  task= FirebaseFirestore.instance.collection('users').doc(FirebaseAuth.instance.currentUser?.uid).collection(
       'tasks');
+  var  taskData= FirebaseFirestore.instance.collection('users').doc(FirebaseAuth.instance.currentUser?.uid).collection(
+      'tasks').where('status',isEqualTo: "1");
   var uuid = Uuid().v1();
 
    createTask(String title) async {
@@ -21,7 +23,7 @@ class TaskService {
         .doc(uuid).set({
       'uid': uuid,
       'title': title,
-
+'status':1
     });
   }
 
@@ -33,6 +35,16 @@ class TaskService {
           'content': content,
           'update time':updateTime,
           'title':title,
+        }).then((value) => null);
+
+
+  }
+  Future<TaskService?>completedTask(String uuid) async {
+    await task
+        .doc(uuid)
+        .update(
+        {
+         'status':0
         }).then((value) => null);
 
 

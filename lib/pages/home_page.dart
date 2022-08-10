@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:to_do/services/task.dart';
+import 'package:to_do/widget/comletedTask_widget.dart';
 import 'package:to_do/widget/empty_page.dart';
 import 'package:to_do/widget/loading_widget.dart';
 import 'package:to_do/widget/logoutwidget.dart';
@@ -32,9 +33,6 @@ FirebaseFirestore.instance.collection('users');
 
           title: const Text("Home page"),
           actions: <Widget>[
-
-
-
         LogoutWidgetPage(context),
 
 
@@ -56,7 +54,7 @@ FirebaseFirestore.instance.collection('users');
 
 
         body: StreamBuilder<QuerySnapshot>(
-            stream: usersCollection.doc(currentUser?.uid).collection('tasks').snapshots(),
+            stream: usersCollection.doc(currentUser?.uid).collection('tasks').where('status',isEqualTo: 1).snapshots(),
             builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
               if (snapshot.hasError) {
                 return Error_Widget(context);
@@ -94,6 +92,7 @@ FirebaseFirestore.instance.collection('users');
                         onTap: () {
                           TaskService().createTask(_title.text);
                           Navigator.pop(context);
+
                         },
                       ),
 

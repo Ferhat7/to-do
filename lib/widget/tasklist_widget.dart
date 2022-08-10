@@ -5,10 +5,7 @@ import 'package:to_do/widget/card_widget.dart';
 
 
 Widget TaskListWidget(BuildContext context,AsyncSnapshot<QuerySnapshot> snapshot){
-  var count=3;
-  if(MediaQuery.of(context).size.width<700){
-    count=2;
-  }
+
   return ListView(
     padding: EdgeInsets.all(20),
 
@@ -17,9 +14,9 @@ Widget TaskListWidget(BuildContext context,AsyncSnapshot<QuerySnapshot> snapshot
       document.data()! as Map<String, dynamic>;
       var title =data['title'];
       var uuid=data['uid'];
+      var status=data['status'];
 
-      return Container(
-          child:CardWidget(context,title,uuid)
-      );
+      return  CardWidget(context,title,uuid);
+
     }).toList(), );
 }
