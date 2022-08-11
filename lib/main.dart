@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:to_do/pages/home_page.dart';
 
 import 'package:to_do/pages/login_page.dart';
-import 'package:to_do/pages/show-page.dart';
-import 'package:to_do/pages/show-page.dart';
-import 'package:to_do/widget/delet_updat_widget.dart';
-import 'package:to_do/widget/logoutwidget.dart';
-import 'package:to_do/widget/update_title_widget.dart';
+import 'package:to_do/pages/show_page.dart';
+import 'package:to_do/pages/show_page.dart';
+import 'package:to_do/widget/deletUpdatTask_widget.dart';
+import 'package:to_do/widget/logoutTask_widget.dart';
+import 'package:to_do/widget/updateTitleTask_widget.dart';
 
 
 

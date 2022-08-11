@@ -1,11 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:to_do/widget/empty_page.dart';
-import 'package:to_do/widget/error_widget.dart';
-import 'package:to_do/widget/loading_widget.dart';
+import 'package:to_do/widget/emptyTask_widget.dart';
+import 'package:to_do/widget/errorTask_widget.dart';
+import 'package:to_do/widget/loadingTask_widget.dart';
 
-import 'tasklist_widget.dart';
+import 'listTask_widget.dart';
 
 Widget CompletedTask_Widget(BuildContext context) {var currentUser = FirebaseAuth.instance.currentUser;
 

@@ -3,11 +3,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:to_do/services/task.dart';
 import 'package:to_do/widget/comletedTask_widget.dart';
-import 'package:to_do/widget/empty_page.dart';
-import 'package:to_do/widget/loading_widget.dart';
-import 'package:to_do/widget/logoutwidget.dart';
-import 'package:to_do/widget/tasklist_widget.dart';
-import '../widget/error_widget.dart';
+import 'package:to_do/widget/emptyTask_widget.dart';
+import 'package:to_do/widget/loadingTask_widget.dart';
+import 'package:to_do/widget/logoutTask_widget.dart';
+import 'package:to_do/widget/listTask_widget.dart';
+import '../widget/errorTask_widget.dart';
 
 
 class HomePage extends StatefulWidget {

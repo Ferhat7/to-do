@@ -1,8 +1,8 @@
 
  import 'package:flutter/material.dart';
-import 'package:to_do/pages/show-page.dart';
+import 'package:to_do/pages/show_page.dart';
 import 'package:to_do/services/task.dart';
-import 'package:to_do/widget/delet_updat_widget.dart';
+import 'package:to_do/widget/deletUpdatTask_widget.dart';
 
 
 Widget CardWidget(BuildContext context,String title,String uuid){
