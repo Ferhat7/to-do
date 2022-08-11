@@ -14,10 +14,15 @@ Widget CardWidget(BuildContext context,String title,String uuid){
           elevation: 10,
           borderOnForeground: false,
           clipBehavior: Clip.antiAlias,
+
           child:
           ListTile(
+
             leading: IconButton(
-              icon: Icon(Icons.check_circle_outline_rounded), onPressed: () {
+              icon: Icon(Icons.check_circle_outline_rounded,),
+
+                onPressed: () {
+
                 TaskService().completedTask(uuid);}
 
             ),

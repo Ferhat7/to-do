@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:to_do/widget/emptyTask_widget.dart';
 import 'package:to_do/widget/errorTask_widget.dart';
 import 'package:to_do/widget/loadingTask_widget.dart';
@@ -28,7 +29,7 @@ FirebaseFirestore.instance.collection('users');
             return Empty_Widget(context);
           }
 
-          return TaskListWidget(context,snapshot);
+          return ListTaskWidget(context,snapshot);
 
 
         }),

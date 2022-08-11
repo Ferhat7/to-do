@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:to_do/widget/card_widget.dart';
 
 
-Widget TaskListWidget(BuildContext context,AsyncSnapshot<QuerySnapshot> snapshot){
+Widget ListTaskWidget(BuildContext context,AsyncSnapshot<QuerySnapshot> snapshot){
 
   return ListView(
     padding: EdgeInsets.all(20),

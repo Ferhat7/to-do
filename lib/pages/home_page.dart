@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:to_do/services/task.dart';
-import 'package:to_do/widget/comletedTask_widget.dart';
 import 'package:to_do/widget/emptyTask_widget.dart';
 import 'package:to_do/widget/loadingTask_widget.dart';
 import 'package:to_do/widget/logoutTask_widget.dart';
@@ -42,14 +41,10 @@ FirebaseFirestore.instance.collection('users');
 
           ],
 
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.purple,
           foregroundColor: Colors.black,
           elevation: 0,
         ),
-
-
-
-
 
 
 
@@ -66,7 +61,7 @@ FirebaseFirestore.instance.collection('users');
                 return Empty_Widget(context);
               }
 
-              return TaskListWidget(context,snapshot);
+              return ListTaskWidget(context,snapshot);
 
 
             }),
