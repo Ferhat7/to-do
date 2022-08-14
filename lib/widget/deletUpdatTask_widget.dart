@@ -35,8 +35,10 @@ Widget UpdateDeleteWidget(BuildContext context, String uuid) {
           size: 24.0,
           color: Colors.black,
         ),
+
         label: Text('Delete', style: TextStyle(color: Colors.black)),
       ))
     ],
+
   );
 }

@@ -30,7 +30,7 @@ FirebaseFirestore.instance.collection('users');
           automaticallyImplyLeading: false,
           centerTitle: true,
 
-          title: const Text("Home page"),
+          title: const Text("TO-DO"),
           actions: <Widget>[
         LogoutWidgetPage(context),
 
@@ -45,8 +45,6 @@ FirebaseFirestore.instance.collection('users');
           foregroundColor: Colors.black,
           elevation: 0,
         ),
-
-
 
         body: StreamBuilder<QuerySnapshot>(
             stream: usersCollection.doc(currentUser?.uid).collection('tasks').where('status',isEqualTo: 1).snapshots(),

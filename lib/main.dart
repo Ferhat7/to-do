@@ -1,16 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:to_do/pages/home_page.dart';
-
 import 'package:to_do/pages/login_page.dart';
-import 'package:to_do/pages/show_page.dart';
-import 'package:to_do/pages/show_page.dart';
-import 'package:to_do/widget/deletUpdatTask_widget.dart';
-import 'package:to_do/widget/logoutTask_widget.dart';
-import 'package:to_do/widget/updateTitleTask_widget.dart';
-
-
-
 
 
 Future main() async {
@@ -29,7 +19,6 @@ Future main() async {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -39,12 +28,6 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.purple,
       ),
       home:LoginPage(),
-
-
-
-
-
-
     );
   }
 }

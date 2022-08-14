@@ -50,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
               Container(
                 margin: EdgeInsets.all(10),
                 child:TextFormField(
-    controller: _emailController,
+        controller: _emailController,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Email',
@@ -61,6 +61,12 @@ class _LoginPageState extends State<LoginPage> {
     if (_emailController!.isEmpty) {
     return "Please enter E-mail hatalı giris";
     }
+    else if (!RegExp(
+    r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+        .hasMatch(_emailController)) {
+      return "Please enter valid e-mail";
+    }
+
 
     else {
     return null;
@@ -87,6 +93,11 @@ class _LoginPageState extends State<LoginPage> {
                   validator: (_passwordController){
                     if(_passwordController!.isEmpty){
                       return "Please enter Password";
+                    }
+    else if (!RegExp(
+    r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$')
+        .hasMatch(_passwordController)) {
+                      return "Password should be at least 8 characters, at least one letter and one number";
                     }
                     else{
                       return null;

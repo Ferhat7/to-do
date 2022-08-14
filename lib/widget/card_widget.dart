@@ -3,7 +3,7 @@
 import 'package:to_do/pages/show_page.dart';
 import 'package:to_do/services/task.dart';
 import 'package:to_do/widget/deletUpdatTask_widget.dart';
-
+ 
 
 Widget CardWidget(BuildContext context,String title,String uuid){
 
@@ -33,8 +33,10 @@ Widget CardWidget(BuildContext context,String title,String uuid){
           )),
 
 
+
       onTap: () =>
           Navigator.push(context, MaterialPageRoute(
               builder: (context) => ShowPage(title: title, uuid: uuid,))));
 }
+
 

@@ -129,15 +129,15 @@ class _ShowPageState extends State<ShowPage> {
                                     maxLines: 10,
                                     minLines: 10,
                                     onChanged: (value) {
-                                      // setState(() {
+
                                       content = value;
-                                      // contentController.text = content;
-                                      // });
+
+
                                     },
                                     onSaved: (value) => {
                                       setState(() {
                                         content = value ?? "";
-                                        // contentController.text = content;
+
                                       })
                                     },
                                   ),

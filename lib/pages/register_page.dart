@@ -66,7 +66,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         if (_nameController!.isEmpty) {
                           return "Please enter name ";
                         } else if (!RegExp(
-                                r"^\s*([A-Za-z]{1,}([\.,] |[-']| ))+[A-Za-z]+\.?\s*$")
+                                r"^\s*([A-Za-z]{3,}([\.,] |[-']| ))+[A-Za-z]+\.?\s*$")
                             .hasMatch(_nameController)) {
                           return "Enter valid name";
                         } else {
@@ -87,7 +87,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         if (_emailController!.isEmpty) {
                           return "Please enter e-mail";
                         } else if (!RegExp(
-                                r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@gmail.com")
                             .hasMatch(_emailController)) {
                           return "Please enter valid e-mail";
                         } else {
